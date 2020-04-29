@@ -39,7 +39,7 @@ def run_model(req_data):
     print("probability=",yproba)
     print("Over and out")
     result_dict={"data":test_data,"class":str(ynew[0]),
-    "control":str(yproba[0][0]),"case":str(yproba[0][1])}
+    "control":str(yproba[0][0]*100),"case":str(yproba[0][1]*100)}
 
 
 

@@ -22,7 +22,18 @@
 
 	<body>
 
-		<form action="/load_in_sheet_mumbai" method="post" enctype="multipart/form-data">
+
+		{% if items %}
+		<div class="container">		
+			<h2>Result:</h2>
+			<div class ="container">
+				<h4>Probability of pre diabetes:
+				{{items.case}} %</h4>
+			</div>
+		</div>
+		{% endif %}
+
+		<form action="/qcri_submit_vitals" method="post" enctype="multipart/form-data">
 
 
 
@@ -38,27 +49,128 @@
 
 		  	</p>
 		  </div> -->
+
+		  <div class="form-group">
+		      	<label>Occupation Activity:</label>
+		      	<select class="form-control" id="occ_act" name="occ_act">
+				  <option value="0">1</option>
+				  <option value="1">2</option>
+				  <option value="2">3</option>
+				  <option value="3">4</option>
+				  <option value="4">5</option>
+				  <option value="5">6</option>
+			  	</select>
+		    </div>
+
+
+		    <div class="form-group">
+		      	<label>Time sitting per day weekend on computer:</label>
+		      	<select class="form-control" id="time_sitting_weekend_comp" name="time_sitting_weekend_comp">
+				  <option value="3">Less than 1 hour</option>
+				  <option value="1">Between 1 hour and less than 2 hours</option>
+				  <option value="2">Between 2 to 4 hours per day</option>
+				  <option value="4">More than 4 hours per day</option>
+				  <option value="5">None</option>	
+			  	</select>
+		    </div>
+
+
+
+
+
+			<div class="form-group">
+	    		<label>Typical Sleep Hours Last Year</label>
+			    <select class="form-control" id="typ_sleep_last_yr" name="typ_sleep_last_yr">
+				  <option value="4">Less than 5 hours</option>
+				  <option value="2">Between 5 and less than 7 hours</option>
+				  <option value="3">Between 7 and less than 8 hours</option>
+				  <option value="1">8 hours or more</option>				  
+				</select>
+			</div>
+
+			<div class="form-group">
+	    		<label>Nap During Day Last Year</label>
+			    <select class="form-control" id="nap_day_last_yr" name="nap_day_last_yr">
+				  <option value="3">Never/Rarely</option>
+				  <option value="5">Sometimes</option>
+				  <option value="2">Frequently</option>
+				  <option value="1">Always</option>				  
+				</select>
+			</div>
+
+			<div class="form-group">
+	    		<label>Snore?</label>
+			    <select class="form-control" id="snore" name="snore">
+				  <option value="3">Yes</option>
+				  <option value="1">No</option>				  
+				</select>
+			</div>
+
+
+			<div class="form-group">
+	    		<label>Other household smokers</label>
+			    <select class="form-control" id="other_house_smoker" name="other_house_smoker">
+				  <option value="0">Not Applicable</option>
+				  <option value="3">Yes, 1 household member smokes</option>
+				  <option value="4">Yes, 2 or more household members smoke</option>
+				  <option value="1">No</option>				  
+				</select>
+			</div>
+
+			<div class="form-group">
+	    		<label>Father Alive?</label>
+			    <select class="form-control" id="father_alive" name="father_alive">
+				  <option value="3">Yes</option>
+				  <option value="2">No</option>				  
+				</select>
+			</div>
+
+
 		  
 		    <div class="form-group">
-		    	<label>Occupation Activity:</label>
-		      	<input type="text" onfocus="this.value=''" class="form-control" id="requestor_name" placeholder="Name" name="requestor_name" required>
+		    	<label>Age:</label>
+		      	<input type="text" onfocus="this.value=''" class="form-control" id="requestor_name" placeholder="Age of subject" name="age" required>
 	      	</div>
 
 
 
 			<div class="form-group">
-		      	<label>Number of people who need help:</label>
-		      	<input type="text"  class="form-control" id="fam_size" placeholder="Number of people under this request" name="num_needy">
+		      	<label>Waist Size(cm):</label>
+		      	<input type="text"  class="form-control" id="hipwaist_waist_size" placeholder="Size of waist in cm" name="hipwaist_waist_size">
 		    </div>
-
 
 		    <div class="form-group">
-		      	<label>Category of Help needed:</label>
-		      	<select class="form-control" id="type_help" name="type_help">
-				  <option value="meal">Meal</option>
-				  <option value="ration">Ration</option>
-			  	</select>
+		      	<label>Hip Size(cm):</label>
+		      	<input type="text"  class="form-control" id="hipwaist_hip_size" placeholder="Size of hip in cm" name="hipwaist_hip_size">
 		    </div>
+
+		     <div class="form-group">
+		      	<label>Diastolic BP1:</label>
+		      	<input type="text"  class="form-control" id="diastolic_bp1" placeholder="Diastolic BP1" name="diastolic_bp1">
+		    </div>
+
+		     <div class="form-group">
+		      	<label>Diastolic BP2:</label>
+		      	<input type="text"  class="form-control" id="diastolic_bp2" placeholder="Diastolic BP2" name="diastolic_bp2">
+		    </div>
+
+		     <div class="form-group">
+		      	<label>Systolic BP1:</label>
+		      	<input type="text"  class="form-control" id="systolic_bp1" placeholder="Systolic BP1" name="systolic_bp1">
+		    </div>
+
+		     <div class="form-group">
+		      	<label>BMI:</label>
+		      	<input type="text"  class="form-control" id="bmi" placeholder="BMI of subject" name="bmi">
+		    </div>
+
+
+
+
+
+
+
+
 
 
 
@@ -74,19 +186,9 @@
 	      	</div> -->
 
 
-	      	<div class="form-group">
-	    		<label>Occupation Activity</label>
-			    <select id="occ_act" name="rice_qty">
-				  <option value="0">1</option>
-				  <option value="1">2</option>
-				  <option value="2">3</option>
-				  <option value="3">4</option>
-				  <option value="4">5</option>
-				  <option value="5">6</option>
-				</select>
-			</div>
+	      	
 
-			
+			<!-- 
 
 			<div class="form-group">
 	    		<label>Time Sitting Per Day Weekend Using Computer</label>
@@ -139,7 +241,7 @@
 		      	<label>Requestor Contact Number(10 digit Mobile):</label>
 		      	<input type="text"  class="form-control" id="vol_contact_num" placeholder="Requestor Contact Number" name="vol_contact_num">
 		    </div>
-
+ -->
 
 
 
@@ -186,6 +288,8 @@
 
 		    <button type="submit" class="blue btn-center ">Submit</button>
 		</div>
+
+		
 
 
 	</form>

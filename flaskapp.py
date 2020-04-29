@@ -36,18 +36,29 @@ def api_qcri_runmodel_single():
 
 
 
+@app.route('/qcri_submit_vitals',methods=["POST"])
+def qcri_submit_vitals():
+  req_data = request.form.to_dict()
+  results=run_model(req_data)
+  # print("Details are: ",req_data)
+  return render_template("qcri_vital_enter.html", items=results)
+
+
+
+
 @app.route('/qcri/testvital')
 def qcri_testvital():
     return render_template('qcri_vital_enter.html')
 
 
 if __name__ == '__main__':
+  app.run(host="0.0.0.0",port=80,debug=True,use_reloader=False,threaded=False)
   #app.run(host="0.0.0.0",port=5000,debug=True,use_reloader=True)
-  if config.env=="local":
-      # app.run(host="0.0.0.0",port=5000,debug=True,use_reloader=True)
-      app.run(host="0.0.0.0",port=80,debug=True,use_reloader=False,threaded=False)
-  elif config.env=="aws":
-      app.run(host="0.0.0.0",port=80,debug=True,use_reloader=False,threaded=False)
+  # if config.env=="local":
+  #     # app.run(host="0.0.0.0",port=5000,debug=True,use_reloader=True)
+  #     app.run(host="0.0.0.0",port=80,debug=True,use_reloader=False,threaded=False)
+  # elif config.env=="aws":
+  #     app.run(host="0.0.0.0",port=80,debug=True,use_reloader=False,threaded=False)
 
 
 
